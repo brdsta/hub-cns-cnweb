@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>世界杯资料索引 · 信息整理库</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background-color: #fbfbfb;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', 'Noto Sans', sans-serif;
+            line-height: 1.6;
+            color: #1e1e1e;
+            padding: 2rem 1rem;
+        }
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+        }
+        /* 顶部 */
+        .hero {
+            margin-bottom: 3rem;
+            border-bottom: 1px solid #e0e0e0;
+            padding-bottom: 2rem;
+        }
+        .hero h1 {
+            font-size: 2.4rem;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            line-height: 1.2;
+            color: #111;
+            margin-bottom: 0.75rem;
+        }
+        .hero .sub {
+            font-size: 1.05rem;
+            color: #555;
+            max-width: 580px;
+        }
+        /* 目录式网格 — 知识库入口感 */
+        .index-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.2rem;
+            margin: 2.5rem 0 3rem 0;
+        }
+        .index-card {
+            background: #ffffff;
+            border: 1px solid #eaeaea;
+            border-radius: 12px;
+            padding: 1.2rem 1rem 1rem 1rem;
+            transition: box-shadow 0.15s;
+        }
+        .index-card:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02), 0 1px 2px rgba(0,0,0,0.04);
+            border-color: #ccc;
+        }
+        .index-card .cat {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #9a9a9a;
+            margin-bottom: 0.3rem;
+            font-weight: 500;
+        }
+        .index-card h3 {
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-bottom: 0.3rem;
+            color: #1c1c1c;
+        }
+        .index-card p {
+            font-size: 0.9rem;
+            color: #4a4a4a;
+            line-height: 1.5;
+        }
+        /* 说明区 + 提示区 */
+        .section-block {
+            margin: 2.2rem 0;
+        }
+        .section-block h2 {
+            font-size: 1.3rem;
+            font-weight: 500;
+            margin-bottom: 0.75rem;
+            border-left: 4px solid #d4d4d4;
+            padding-left: 0.8rem;
+            color: #222;
+        }
+        .section-block p, .section-block li {
+            font-size: 0.95rem;
+            color: #3a3a3a;
+        }
+        .note-box {
+            background: #f3f3f3;
+            border-radius: 10px;
+            padding: 1.2rem 1.4rem;
+            margin: 1.8rem 0;
+            border: 1px solid #e2e2e2;
+        }
+        .note-box p {
+            margin-bottom: 0.25rem;
+        }
+        .note-box .label {
+            font-weight: 500;
+            color: #2b2b2b;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        ul li {
+            position: relative;
+            padding-left: 1.2rem;
+            margin-bottom: 0.4rem;
+        }
+        ul li::before {
+            content: "·";
+            position: absolute;
+            left: 0.2rem;
+            color: #888;
+            font-weight: 700;
+        }
+        /* 相关信息区 */
+        .related {
+            background: #f9f9f9;
+            border-radius: 14px;
+            padding: 1.4rem 1.5rem;
+            margin-top: 2rem;
+            border: 1px solid #eaeaea;
+        }
+        .related h3 {
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-bottom: 0.6rem;
+        }
+        .related a {
+            color: #1a1a1a;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-color: #bbb;
+            transition: text-decoration-color 0.15s;
+        }
+        .related a:hover {
+            text-decoration-color: #333;
+        }
+        /* FAQ摘要 */
+        .faq-mini {
+            margin: 2.2rem 0 1.8rem 0;
+        }
+        .faq-item {
+            margin-bottom: 1rem;
+        }
+        .faq-item .q {
+            font-weight: 500;
+            margin-bottom: 0.1rem;
+            color: #222;
+        }
+        .faq-item .a {
+            color: #4a4a4a;
+            font-size: 0.9rem;
+        }
+        hr {
+            border: none;
+            border-top: 1px solid #e2e2e2;
+            margin: 2rem 0;
+        }
+        .footer-note {
+            font-size: 0.8rem;
+            color: #888;
+            text-align: center;
+            margin-top: 3rem;
+            border-top: 1px solid #ececec;
+            padding-top: 1.8rem;
+        }
+        /* 响应式 */
+        @media (max-width: 500px) {
+            .index-grid {
+                grid-template-columns: 1fr;
+                gap: 0.9rem;
+            }
+            .hero h1 {
+                font-size: 1.9rem;
+            }
+            body {
+                padding: 1.2rem 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <!-- hero 区 -->
+    <div class="hero">
+        <h1>世界杯 · 资料整理库</h1>
+        <div class="sub">从历史、赛制、数据到趣闻，这里像一个不断生长的信息书架。<br>适合快速查阅，也适合随意浏览。</div>
+    </div>
+
+    <!-- 目录感布局：卡片索引 -->
+    <div class="index-grid">
+        <div class="index-card">
+            <div class="cat">🏆 赛事档案</div>
+            <h3>历届冠军 & 决赛</h3>
+            <p>1930 乌拉圭 — 2022 阿根廷，每届冠亚军、比分、主办国一览。</p>
+        </div>
+        <div class="index-card">
+            <div class="cat">📊 数据记录</div>
+            <h3>射手榜 & 出场王</h3>
+            <p>总进球、单届进球、最年长/年轻球员……数字里的世界波。</p>
+        </div>
+        <div class="index-card">
+            <div class="cat">🌍 球队 & 区域</div>
+            <h3>各大洲参赛史</h3>
+            <p>欧洲、南美、非洲、亚洲、北美、大洋洲——哪些球队曾走到最后。</p>
+        </div>
+        <div class="index-card">
+            <div class="cat">📅 赛制沿革</div>
+            <h3>从13队到48队</h3>
+            <p>小组赛、淘汰赛、扩军历程，以及未来赛制变化。</p>
+        </div>
+    </div>
+
+    <!-- 说明区（切入角度：资料整理与索引） -->
+    <div class="section-block">
+        <h2>为什么做这个信息库</h2>
+        <p>关于世界杯的零散信息分布在各处：百科、新闻、统计网站、论坛……这个页面尝试把一些反复被问到、值得记下的内容整理到同一个屋檐下。不是取代官方或百科，而是提供一个更方便的索引起点。</p>
+        <p style="margin-top: 0.7rem;">如果你只是想简单了解某一届赛事、某位球员的记录，或者对比不同年代的规则变化，可以从上面几张卡片找到方向。每个卡片背后都会持续补充更细的条目。</p>
+    </div>
+
+    <!-- 提示区 -->
+    <div class="note-box">
+        <span class="label">📌 使用提示</span>
+        <p>· 卡片链接会跳转到对应分类页（目前部分分类仍在搭建内容）。<br>
+        · 如果你发现数据错误或遗漏，欢迎通过反馈渠道告知。<br>
+        · 这个站点不是官方 FIFA 网站，而是爱好者维护的资料索引。</p>
+    </div>
+
+    <!-- 相关信息区 + 嵌入链接 -->
+    <div class="related">
+        <h3>相关信息</h3>
+        <p style="margin-bottom: 0.6rem;">如果你需要最直接的赛事动态、官方赛程或权威数据，可以前往 <a href="https://cns-cnweb-shijiebei.com">世界杯</a> 浏览更多整合内容。该页面会同步更新比赛结果、积分榜和新闻摘要，适合作为快速参考。</p>
+        <p style="font-size: 0.9rem; color: #5a5a5a;">另外，你还可以在站内找到每届世界杯的比分记录、球队阵容清单以及历史排名变化。</p>
+    </div>
+
+    <!-- FAQ 摘要 — 生活化语气但保持正式质感 -->
+    <div class="faq-mini">
+        <h2 style="font-size: 1.2rem; font-weight: 500; border-left: 4px solid #d4d4d4; padding-left: 0.8rem; margin-bottom: 1rem;">一些常见问题</h2>
+        <div class="faq-item">
+            <div class="q">❓ 为什么有的早期世界杯数据不太完整？</div>
+            <div class="a">1930 到 1950 年代的部分统计（比如助攻、扑救次数）当时没有系统记录，后期由研究者根据比赛报道推算，不同来源可能略有出入。我们尽量取多个来源交叉核对后的数字。</div>
+        </div>
+        <div class="faq-item">
+            <div class="q">❓ 这里会包含预选赛信息吗？</div>
+            <div class="a">会，目前正在整理各大洲预选赛的出线规则和历史晋级情况，但速度比较慢——毕竟预选赛跨度大、球队多。会优先整理近三届（2018、2022、2026）的预选赛数据。</div>
+        </div>
+        <div class="faq-item">
+            <div class="q">❓ 页面多久更新一次？</div>
+            <div class="a">没有固定周期，但遇到大赛年份（比如 2026 年）会集中更新。平常随资料收集进度不定期补充。</div>
+        </div>
+    </div>
+
+    <hr>
+
+    <!-- 最后再嵌入一次链接（自然嵌入句子） -->
+    <p style="font-size: 0.9rem; color: #555;">如果你主要关注最新的正赛阶段信息，可以直接把 <a href="https://cns-cnweb-shijiebei.com">世界杯</a> 这个链接存起来，它指向的页面会聚合即时赛果和基础数据。</p>
+
+    <div class="footer-note">
+        基于公开资料整理 · 非官方页面 · 持续修订中
+    </div>
+
+</div>
+</body>
+</html>
