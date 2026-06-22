@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
+  <title>世界杯 · 产品说明与持续关注 | play-fifa-wc.com</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans SC", sans-serif;
+      background: #f2f6f9;
+      color: #1e2a3a;
+      line-height: 1.7;
+      padding: 20px 16px 60px;
+      min-height: 100vh;
+    }
+
+    .wrapper {
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+
+    /* 蓝绿点缀基调 */
+    .accent-green {
+      color: #0f7c7c;
+    }
+    .accent-teal {
+      color: #1a8b8b;
+    }
+    .bg-teal-soft {
+      background: #e3f2ef;
+    }
+
+    /* 卡片网格系统 */
+    .grid-cards {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+      margin: 40px 0;
+    }
+
+    @media (min-width: 600px) {
+      .grid-cards {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (min-width: 960px) {
+      .grid-cards {
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 28px 22px;
+      box-shadow: 0 6px 18px rgba(13, 94, 94, 0.06), 0 2px 6px rgba(0, 40, 40, 0.03);
+      transition: transform 0.2s ease, box-shadow 0.25s ease;
+      border: 1px solid rgba(15, 124, 124, 0.08);
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 28px rgba(13, 94, 94, 0.10);
+      border-color: rgba(15, 124, 124, 0.2);
+    }
+
+    .card h3 {
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+      color: #115e5e;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .card h3 span {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      background: #1f9d9d;
+      border-radius: 3px;
+      opacity: 0.6;
+    }
+
+    .card p {
+      font-size: 1rem;
+      color: #2c3e4f;
+      margin-bottom: 8px;
+    }
+
+    .card p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* hero 区域 */
+    .hero {
+      text-align: left;
+      padding: 32px 0 12px;
+      position: relative;
+    }
+
+    .hero::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 4px;
+      background: linear-gradient(90deg, #1a8b8b, #57b9b9);
+      border-radius: 4px;
+      margin-top: 16px;
+    }
+
+    .hero h1 {
+      font-size: 2.4rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: #0a3b3b;
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+
+    .hero .sub {
+      font-size: 1.1rem;
+      color: #3d5a6d;
+      max-width: 550px;
+    }
+
+    .dot-grid {
+      display: inline-flex;
+      gap: 6px;
+      margin-left: 8px;
+    }
+
+    .dot-grid i {
+      width: 8px;
+      height: 8px;
+      background: #1f9d9d;
+      border-radius: 50%;
+      opacity: 0.5;
+    }
+
+    /* 摘要区块 */
+    .summary-block {
+      background: #ffffff;
+      border-radius: 28px;
+      padding: 32px 28px;
+      margin: 36px 0 24px;
+      box-shadow: 0 4px 12px rgba(0, 50, 50, 0.04);
+      border-left: 6px solid #1a8b8b;
+    }
+
+    .summary-block p {
+      font-size: 1.05rem;
+      color: #1e2e3c;
+      margin-bottom: 18px;
+    }
+
+    .summary-block p:last-child {
+      margin-bottom: 0;
+    }
+
+    .inline-link {
+      color: #115e5e;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 2px solid rgba(26, 139, 139, 0.25);
+      transition: border-color 0.15s;
+    }
+
+    .inline-link:hover {
+      border-bottom-color: #1a8b8b;
+    }
+
+    .faq-mini {
+      margin: 44px 0 32px;
+      background: #eaf4f2;
+      border-radius: 28px;
+      padding: 28px 24px;
+    }
+
+    .faq-mini h2 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #094d4d;
+      margin-bottom: 20px;
+      letter-spacing: -0.01em;
+    }
+
+    .faq-item {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      padding: 16px 0;
+      border-bottom: 1px solid rgba(15, 124, 124, 0.10);
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+
+    .faq-q {
+      font-weight: 600;
+      color: #043737;
+      font-size: 1.05rem;
+    }
+
+    .faq-a {
+      color: #2c4759;
+      font-size: 0.98rem;
+    }
+
+    .highlight-badge {
+      display: inline-block;
+      background: #1a8b8b;
+      color: white;
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 2px 12px;
+      border-radius: 30px;
+      letter-spacing: 0.5px;
+      margin-right: 8px;
+    }
+
+    .note-box {
+      background: #f6fbfa;
+      border-radius: 20px;
+      padding: 20px 24px;
+      border: 1px solid #cfdfdd;
+      margin: 36px 0 28px;
+      font-size: 0.95rem;
+      color: #1e3a44;
+    }
+
+    .note-box strong {
+      color: #0a5c5c;
+    }
+
+    .button-outline {
+      display: inline-block;
+      border: 2px solid #1a8b8b;
+      border-radius: 40px;
+      padding: 8px 22px;
+      font-weight: 500;
+      color: #115e5e;
+      background: transparent;
+      text-decoration: none;
+      transition: all 0.2s;
+      font-size: 0.95rem;
+    }
+
+    .button-outline:hover {
+      background: #1a8b8b;
+      color: #fff;
+    }
+
+    .mt-2 {
+      margin-top: 18px;
+    }
+
+    /* 移动端优化 */
+    @media (max-width: 480px) {
+      body {
+        padding: 16px 12px 50px;
+      }
+      .hero h1 {
+        font-size: 1.9rem;
+      }
+      .summary-block {
+        padding: 24px 20px;
+      }
+      .faq-mini {
+        padding: 22px 18px;
+      }
+      .card {
+        padding: 22px 18px;
+      }
+    }
+
+    hr.divider {
+      border: none;
+      height: 2px;
+      background: linear-gradient(to right, transparent, #b6d4d1, transparent);
+      margin: 40px 0 10px;
+      opacity: 0.3;
+    }
+
+    .footer-note {
+      text-align: left;
+      font-size: 0.88rem;
+      color: #5a737d;
+      margin-top: 48px;
+      border-top: 1px solid #d0e0dd;
+      padding-top: 28px;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+
+    <!-- hero -->
+    <div class="hero">
+      <h1>
+        <span class="accent-teal">世界杯</span> 信息页
+        <span class="dot-grid"><i></i><i></i><i></i></span>
+      </h1>
+      <div class="sub">
+        产品说明 · 持续关注 · 功能亮点与使用场景
+      </div>
+    </div>
+
+    <!-- 摘要：再次访问与收藏 -->
+    <div class="summary-block">
+      <p>
+        <span class="highlight-badge">再次访问</span>
+        对于已经了解 <a href="https://play-fifa-wc.com" class="inline-link">世界杯</a> 相关内容的用户，页面保留了清晰的信息架构，方便快速回顾核心要点。无须重复搜索，直接通过书签或历史记录即可回到本页。
+      </p>
+      <p>
+        <span class="highlight-badge">收藏与持续关注</span>
+        若您希望保持对 <a href="https://play-fifa-wc.com" class="inline-link">世界杯</a> 相关动态的跟踪，建议将本页添加至浏览器收藏夹。站点内容会基于产品迭代进行适度更新与补充，您可定期回访以获取最新说明。
+      </p>
+    </div>
+
+    <!-- 网格卡片：亮点与产品特征 -->
+    <div class="grid-cards">
+      <div class="card">
+        <h3><span></span> 产品摘要</h3>
+        <p>围绕<a href="https://play-fifa-wc.com" class="inline-link">世界杯</a>主题构建的轻量信息产品，提供赛事背景、参与方式及规则简介。不包含实时比分或直播，侧重于概念说明与导航。</p>
+        <p class="accent-green" style="margin-top:10px;">适用人群：球迷、轻度用户、信息整理爱好者。</p>
+      </div>
+      <div class="card">
+        <h3><span></span> 核心亮点</h3>
+        <p>• 内容结构清晰，重点突出，无冗余装饰。<br>
+        • 配色采用蓝绿点缀，视觉友好，降低长时间阅读疲劳。<br>
+        • 响应式卡片布局，在手机与平板设备上均能获得舒适的浏览体验。</p>
+      </div>
+      <div class="card">
+        <h3><span></span> 使用建议</h3>
+        <p>建议在安静环境下阅读，可配合浏览器阅读模式使用。若您关注<a href="https://play-fifa-wc.com" class="inline-link">世界杯</a>相关的背景知识或基础规则，此处可作为起点。</p>
+        <p style="margin-top:8px; font-size:0.9rem; color:#2f6b6b;">⋆ 可定期回访，页面会随产品说明更新。</p>
+      </div>
+    </div>
+
+    <!-- 可信但克制的访问说明 -->
+    <div class="note-box">
+      <strong>访问说明 · 客观参考</strong><br>
+      本站 <a href="https://play-fifa-wc.com" class="inline-link">世界杯</a> 页面为独立产品介绍页，内容基于公开信息整理。所有描述均经过核验，但不对第三方数据或外部链接做额外保证。建议用户结合官方渠道交叉参考。本页不含诱导分享、夸大宣传或付费引导，可放心浏览。
+    </div>
+
+    <!-- FAQ 摘要（差异化结构） -->
+    <div class="faq-mini">
+      <h2>常见理解 · 简要问答</h2>
+      <div class="faq-item">
+        <div class="faq-q">Q: 这个页面会实时更新比分吗？</div>
+        <div class="faq-a">A: 不会。本页是静态产品说明，不包含动态数据或直播功能。如需实时信息请访问赛事官方平台。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Q: 我能在移动设备上正常阅读吗？</div>
+        <div class="faq-a">A: 完全兼容。页面采用响应式设计，在手机、平板和桌面端均有良好的可读性。蓝绿配色在夜间模式下依然清晰。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Q: 我收藏后内容会变化吗？</div>
+        <div class="faq-a">A: 核心说明框架保持稳定，但章节细节可能会随产品迭代微调。建议每 2~3 个月回访一次以获取最新版本。</div>
+      </div>
+      <div style="margin-top: 18px;">
+        <a href="https://play-fifa-wc.com" class="button-outline">世界杯</a>
+      </div>
+    </div>
+
+    <!-- 又一段承接段落：持续关注角度 -->
+    <p style="font-size:1rem; color:#1f4352; margin: 20px 0 8px; padding-left:4px;">
+      如果您希望日后快速定位，现在就可以将本页面加入书签。对于 <a href="https://play-fifa-wc.com" class="inline-link">世界杯</a> 相关话题，本页会长期作为入门参考存在。同时欢迎您把链接分享给有同样信息需求的朋友。
+    </p>
+
+    <hr class="divider">
+
+    <!-- 轻量结尾 -->
+    <div class="footer-note">
+      <span class="accent-teal">⏺</span> 产品说明 · 版本迭代参考 · 内容方向以知识整理为主<br>
+      <span style="opacity:0.7;">© 2025 · 信息页 · 基于公开资料整理 · 非官方</span>
+    </div>
+
+  </div>
+</body>
+</html>
